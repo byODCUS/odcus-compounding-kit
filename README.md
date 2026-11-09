@@ -19,14 +19,14 @@ Five loops, one store (`~/.compounding`), no server required for the first four.
 ## Install
 
 ```bash
-claude plugin marketplace add aiffective-yhi/odcus-compounding-kit
+claude plugin marketplace add byODCUS/odcus-compounding-kit
 claude plugin install compounding-kit@odcus
 ```
 
 Or in one step inside a Claude Code session (Claude Code 2.1.275 or later):
 
 ```
-/plugin install compounding-kit --marketplace aiffective-yhi/odcus-compounding-kit
+/plugin install compounding-kit --marketplace byODCUS/odcus-compounding-kit
 ```
 
 

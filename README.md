@@ -30,7 +30,13 @@ Or in one step inside a Claude Code session (Claude Code 2.1.275 or later):
 
 Then in a Claude Code session: **"set up the compounding kit"**. The `compounding-setup` skill runs `scripts/setup.sh`, fills `~/.claude/CLAUDE.md` from the template (never overwriting yours), finds your memory folder, and prints the cron lines. Two things stay manual by design: the headless token (`claude setup-token`) and the crontab.
 
-Requirements: Claude Code, `jq`, `python3`, `git`. Jobs need a machine that is on at night (a CHF 6/month VPS does it; see [docs/jobs.md](docs/jobs.md)).
+## Dependencies
+
+- **Required:** Claude Code, `jq`, `python3`, `git`, and cron or launchd for the scheduled loops.
+- **No other skills or plugins.** The kit does not use a search engine (such as `qmd`), a vector store, MCP servers or third-party skills. Memory is plain Markdown files that Claude Code already loads; the loops are `.jsonl` files and shell scripts.
+- **Optional, not included:** the `context-engineering` plugin, whose rubrics we use for a weekly audit described in [docs/jobs.md](docs/jobs.md).
+
+Jobs need a machine that is on at night (a CHF 6/month VPS does it; see [docs/jobs.md](docs/jobs.md)).
 
 ## What is in the plugin
 

@@ -1,6 +1,6 @@
 # ODCUS compounding kit
 
-A Claude Code plugin plus playbook that makes a Claude setup **compound**: every session, every job and every correction leaves something behind that the next one uses. Built and run daily at ODCUS AG since mid-2026. MIT licensed.
+A Claude Code plugin plus playbook that makes a Claude setup **compound**: every session, every job and every correction leaves something behind that the next one uses. Built and run daily at ODCUS. MIT licensed.
 
 ## What compounds, and how
 

@@ -35,8 +35,6 @@ done
 
 echo "2. files"
 place "$T/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md"
-place "$T/SKILLS.md" "$CLAUDE_DIR/SKILLS.md"
-place "$T/skill-router.rules" "$CLAUDE_DIR/skill-router.rules"
 
 echo "3. memory folder (needed by memory-review.sh)"
 if ls -d "$CLAUDE_DIR"/projects/*/memory >/dev/null 2>&1; then

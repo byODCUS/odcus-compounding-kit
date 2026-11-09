@@ -1,11 +1,11 @@
 ---
 name: compounding-setup
-description: Install and configure the compounding kit on this machine (store, CLAUDE.md, SKILLS.md, memory folder, headless auth, cron). Use when the user says "set up the compounding kit", "install the loops", "compounding setup", or right after the plugin was installed.
+description: Install and configure the compounding kit on this machine (store, CLAUDE.md, memory folder, headless auth, cron). Use when the user says "set up the compounding kit", "install the loops", "compounding setup", or right after the plugin was installed.
 ---
 
 # Compounding setup
 
-Goal: after this skill the five loops run on this machine (learning loop, follow-ups, memory review, skill chains, run log). Do the steps in order. Verify each one before you move on; never report a step as done that you did not see succeed.
+Goal: after this skill the four loops run on this machine (learning loop, follow-ups, memory review, run log). Do the steps in order. Verify each one before you move on; never report a step as done that you did not see succeed.
 
 ## 1. Run the setup script
 
@@ -23,7 +23,7 @@ Open `~/.claude/CLAUDE.md`. If it was just created from the template, fill the t
 2. Definition of done: what must be true before Claude says "done"? (Offer the template's list as the default.)
 3. Autonomy: what may Claude do unasked, what always needs a question?
 
-If a CLAUDE.md already existed, show the user the template sections that are missing from it (learning loop line, follow-up rule, memory rules, skill chains pointer) and propose them as additions. Never rewrite their text.
+If a CLAUDE.md already existed, show the user the template sections that are missing from it (learning loop line, follow-up rule, memory rules) and propose them as additions. Never rewrite their text.
 
 ## 3. Memory folder
 
@@ -43,11 +43,7 @@ The token never goes into a repo, a synced folder or a script.
 
 Show the crontab lines the setup script printed. The user picks which loops to run (recommend all four: memory review nightly, follow-ups daily, learning review weekly, plus their own jobs wrapped in run-logged.sh). They paste the lines into `crontab -e` themselves. On a Mac that sleeps, point them to `templates/launchd.example.plist` instead, or run the jobs on a small always-on server (see docs/jobs.md).
 
-## 6. Skill chains
-
-Open `~/.claude/SKILLS.md`. Walk through the seven sections with the user and replace the placeholders with the skills they actually have (`ls ~/.claude/skills`, plus plugin skills). Delete sections they do not need; keep the numbering, the router rules point at it. Adjust `~/.claude/skill-router.rules` only if their vocabulary differs from the defaults.
-
-## 7. Verify
+## 6. Verify
 
 - `bash "${CLAUDE_PLUGIN_ROOT}/scripts/learning.sh" list` runs without error.
 - Start a new session: the learning-loop line appears at session start.

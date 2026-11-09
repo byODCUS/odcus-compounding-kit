@@ -6,12 +6,12 @@
   },
   "metadata": {
     "description": "Claude Code plugins published by ODCUS AG.",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "plugins": [
     {
       "name": "compounding-kit",
-      "description": "Context-compounding loops for Claude Code: learning loop, follow-ups, memory review, skill chains with a router hook, run log for jobs, and the quality-gate skills that use them.",
+      "description": "Context that compounds across Claude Code sessions: learning loop, follow-ups, nightly memory review, run log for jobs.",
       "source": "./plugins/compounding-kit",
       "category": "productivity"
     }

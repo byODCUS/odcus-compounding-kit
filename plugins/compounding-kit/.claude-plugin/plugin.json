@@ -1,7 +1,7 @@
 {
   "name": "compounding-kit",
-  "description": "Context-compounding loops for Claude Code: learning loop, follow-ups, memory review, skill chains with a router hook, run log for jobs, and the quality-gate skills that use them.",
-  "version": "0.2.0",
+  "description": "Context that compounds across Claude Code sessions: learning loop, follow-ups, nightly memory review, run log for jobs.",
+  "version": "0.3.0",
   "author": {
     "name": "ODCUS AG"
   },
@@ -10,7 +10,7 @@
   "keywords": [
     "memory",
     "learning-loop",
-    "skills",
+    "follow-ups",
     "hooks",
     "automation",
     "context-engineering"

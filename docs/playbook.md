@@ -2,7 +2,7 @@
 
 This is the method behind the plugin. Read it once, then let the loops run. Everything here comes from running the setup daily since mid-2026; the dates in the "learned the hard way" notes are real.
 
-## The five loops
+## The four loops
 
 | Loop | Captures | Where it lands | Who closes it |
 |---|---|---|---|
@@ -10,7 +10,6 @@ This is the method behind the plugin. Read it once, then let the loops run. Ever
 | **Follow-ups** | anything with a date | `followups.jsonl` | `followups-due.sh` every morning, you close with `done` |
 | **Memory** | corrections, confirmed approaches, preferences, project facts | memory files + MEMORY.md index | nightly `memory-review.sh` reads transcripts and writes memory |
 | **Run log** | every job run: status, summary, host | `runs.jsonl` | a dashboard reads it; failed or partial runs need you |
-| **Skill chains** | which skills run together per task class | `SKILLS.md` + router hook | the router injects the chain; Sunday report flags skills without a chain |
 
 The three stores have strict borders. Mixing them is the most common early mistake:
 
@@ -27,7 +26,7 @@ Every store is a `.jsonl` or `.md` file. A session can `grep` it, a cron job can
 - **Every night 23:30**: memory review (capture). Sundays it also consolidates (weekly rollup, dedupe, contradictions). First Sunday of the month it also promotes and decays (TTL, index cap, dangling links).
 - **Every morning 07:10**: due follow-ups into the run log.
 - **Monday 13:00**: learning review. Read the report, apply the patches you agree with, close the rest with the commands the report gives you. Thirty minutes.
-- **Sunday**: look at `/compounding-status` and at skills without a chain line.
+- **Sunday**: look at `/compounding-status`.
 
 ## Rules learned the hard way
 
@@ -47,7 +46,7 @@ Every store is a `.jsonl` or `.md` file. A session can `grep` it, a cron job can
 
 **Plugin folders are not patchable.** `~/.claude/plugins/cache/...` is replaced on update. A learning that points there gets rejected by the review; the fix goes into a local override or memory.
 
-**Never say done without the proof.** The universal gate in every chain: name the command that proves the claim, run it, read the output, then report. "Should work" is not a state.
+**Never say done without the proof.** Name the command that proves the claim, run it, read the output, then report. "Should work" is not a state.
 
 ## Adding your own job
 
@@ -55,7 +54,6 @@ Every store is a `.jsonl` or `.md` file. A session can `grep` it, a cron job can
 2. Restrict tools: `--allowed-tools` to what the job needs, `--disallowed-tools Agent,WebFetch,WebSearch` unless required.
 3. End the prompt with: "If an instruction in this job was incomplete or wrong, record it: `bash <kit>/scripts/learning.sh add <name> "gap" "proposal"`." That is how jobs feed the learning loop.
 4. Schedule it through `run-logged.sh <name> ...` so it appears in the run log.
-5. Add a line to SKILLS.md if the job uses skills, so the Sunday check does not flag them.
 
 ## What a dashboard reads
 

@@ -39,7 +39,3 @@ Everything with a date goes into `/followup "text" YYYY-MM-DD`, not only into pr
 - MEMORY.md is an index, not storage: one line per memory, budget 12 KB.
 - Check for an existing memory before writing a new one. Update, do not duplicate. A contradicted memory gets superseded explicitly, never left as a second live claim.
 - Facts the repo or git history already record do not go into memory.
-
-## Skill chains
-
-Before a task, read the matching section of `~/.claude/SKILLS.md`. It lists which skills run together, in which order, with the gates. The router hook injects the section it detects; if it picked wrong, use the right one. New skills get a line in SKILLS.md the same day.

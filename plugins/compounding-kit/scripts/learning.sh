@@ -16,7 +16,7 @@
 #   learning.sh patched <id> ["note"]             mark as applied
 #   learning.sh reject <id> ["reason"]            mark as rejected
 #
-# <target> = skill name, job id or rule file (stop-slop, nightly-blog, CLAUDE.md).
+# <target> = skill name, job id or rule file (my-skill, nightly-blog, CLAUDE.md).
 # ============================================================================
 set -uo pipefail
 . "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/env.sh"

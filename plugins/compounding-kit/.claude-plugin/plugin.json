@@ -1,0 +1,19 @@
+{
+  "name": "compounding-kit",
+  "description": "Context-compounding loops for Claude Code: learning loop, follow-ups, memory review, skill chains with a router hook, run log for jobs, and the quality-gate skills that use them.",
+  "version": "0.2.0",
+  "author": {
+    "name": "ODCUS AG"
+  },
+  "homepage": "https://github.com/aiffective-yhi/odcus-compounding-kit",
+  "repository": "https://github.com/aiffective-yhi/odcus-compounding-kit",
+  "keywords": [
+    "memory",
+    "learning-loop",
+    "skills",
+    "hooks",
+    "automation",
+    "context-engineering"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,20 @@
+# ---- compounding kit: paste into `crontab -e`, adjust times and paths ----
+# Paths: __KIT__ = plugin folder, __HOME__ = COMPOUNDING_HOME. Times in the server's zone.
+CRON_TZ=Europe/Zurich
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin:__USERHOME__/.local/bin
+# Headless auth: the token lives in ~/.config/compounding/claude-auth.env (chmod 600), never here.
+# That file holds one line:  export CLAUDE_CODE_OAUTH_TOKEN=...
+# Each job sources it with set -a so the variable reaches the claude process.
+
+# 23:30 daily: memory review (capture; Sundays consolidate; first Sunday of the month promote)
+30 23 * * * set -a; . ~/.config/compounding/claude-auth.env; set +a; MEMORY_DIR="$HOME/.claude/projects/<your-project-slug>/memory" /bin/bash "__KIT__/scripts/memory-review.sh" >> "__HOME__/logs/cron-memory-review.log" 2>&1
+
+# 07:10 daily: due follow-ups into the run log
+10 7 * * * /bin/bash "__KIT__/scripts/followups-due.sh" >> "__HOME__/logs/cron-followups.log" 2>&1
+
+# 13:00 Mondays: learning review (report only; APPLY=1 by hand after reading the first report)
+0 13 * * 1 set -a; . ~/.config/compounding/claude-auth.env; set +a; /bin/bash "__KIT__/scripts/learning-review.sh" >> "__HOME__/logs/cron-learning-review.log" 2>&1
+
+# Your own jobs: wrap them so they appear in the run log
+# 0 6 * * 1-5 /bin/bash "__KIT__/scripts/run-logged.sh" nightly-blog /bin/bash "__HOME__/jobs/nightly-blog.sh" >> "__HOME__/logs/cron-nightly-blog.log" 2>&1

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "odcus",
+  "owner": {
+    "name": "ODCUS AG"
+  },
+  "metadata": {
+    "description": "Claude Code plugins published by ODCUS AG.",
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "compounding-kit",
+      "description": "Context-compounding loops for Claude Code: learning loop, follow-ups, memory review, skill chains with a router hook, run log for jobs, and the quality-gate skills that use them.",
+      "source": "./plugins/compounding-kit",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- macOS alternative to cron for one job. Save as ~/Library/LaunchAgents/com.compounding.followups.plist
+     and load with: launchctl load ~/Library/LaunchAgents/com.compounding.followups.plist
+     A laptop that sleeps misses runs; prefer a small always-on server for the nightly jobs. -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.compounding.followups</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/PATH/TO/compounding-kit/scripts/followups-due.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>10</integer></dict>
+  <key>StandardOutPath</key><string>/Users/USER/.compounding/logs/launchd-followups.log</string>
+  <key>StandardErrorPath</key><string>/Users/USER/.compounding/logs/launchd-followups.log</string>
+</dict>
+</plist>
